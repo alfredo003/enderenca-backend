@@ -16,7 +16,7 @@
       "typeorm": "0.3.21"
    },
    "scripts": {
-      "start": "ts-node src/server.ts",
+      "dev": "ts-node src/server.ts",
       "typeorm": "typeorm-ts-node-commonjs"
    }
 }

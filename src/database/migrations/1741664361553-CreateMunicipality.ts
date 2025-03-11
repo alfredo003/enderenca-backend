@@ -1,27 +1,29 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class CreateProvince1741487333319 implements MigrationInterface {
-    name = 'CreateProvince1741487333319'
+export class CreateMunicipality1741664361553 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.createTable(
-            new Table({
-            name: 'provinces',
+        await queryRunner.createTable(new Table({
+            name: 'municipalities',
             columns: [
                 {
                     name: 'id',
                     type: 'varchar',
                     length: '36',
-                    isPrimary: true
+                    isPrimary: true,
                 },
                 {
                     name: 'name',
                     type: 'varchar',
                 },
                 {
-                    name:'cod',
-                    type:'varchar',
-                    isUnique:true,
+                    name: 'cod',
+                    type: 'varchar',
+                    isUnique: true,
+                },
+                {
+                    name: 'pronvince_id',
+                    type: 'varchar',
                 },
                 {
                     name: 'created_at',
@@ -32,15 +34,13 @@ export class CreateProvince1741487333319 implements MigrationInterface {
                     name: 'updated_at',
                     type: 'timestamp',
                     default: 'now()',
-                }
-            ],      
-    })
-);
-}
-
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable('provinces');
+                },
+            ],
+        }));
     }
 
-}
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        queryRunner.dropTable('municipalities');
+        }
 
+}

@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
 import { Municipality } from "./Municipality";
 
 @Entity()
-export class Province {
+export class Commune {
 
     @PrimaryGeneratedColumn()
     id: string;
@@ -12,12 +12,12 @@ export class Province {
 
     @Column()
     cod: string;
-
+    
     @CreateDateColumn()
     created_at: Date;
     @UpdateDateColumn()
     updated_at: Date;
-    
-    @OneToMany(() => Municipality, municipality => municipality.province)
-    municipalities: Municipality[];
+
+    @ManyToOne(() => Municipality, municipality => municipality.communes)
+    municipality: Municipality;
 }
