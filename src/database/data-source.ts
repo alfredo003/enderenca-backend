@@ -9,6 +9,6 @@ export const AppDataSource = new DataSource({
     password: "root",
     database: "enderenca",
     logging: false,
-    entities: ["../models/*.ts"],
+    entities: ["./src/models/*.ts"],
     migrations: ["./src/database/migrations/*.ts"],
 })

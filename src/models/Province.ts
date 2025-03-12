@@ -11,7 +11,7 @@ export class Province {
     name: string;
 
     @Column()
-    cod: string;
+    cod: number;
 
     @CreateDateColumn()
     created_at: Date;
