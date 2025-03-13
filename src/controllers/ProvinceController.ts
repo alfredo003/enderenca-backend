@@ -1,9 +1,9 @@
-import { Province } from "../models/Province";
+import { Request, Response } from "express";
 import { ProvinceRepository } from "../repositories/ProvinceRepository";
 
 export class ProvinceController {
 
-  static async create(req, res):Promise<Province> {
+  static async create(req:Request, res:Response):Promise<Response> {
     const {name} = req.body;
     if (!name) {
       return res.status(400).json({message: "Name is required"});
@@ -14,7 +14,7 @@ export class ProvinceController {
 
     const pronvice = ProvinceRepository.create({
         name,
-        cod: newCod,
+        cod: 1,
     });
     const provinceSave = await ProvinceRepository.save(pronvice);
     if(!provinceSave) {
